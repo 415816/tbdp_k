@@ -9,7 +9,7 @@ const qt1 = [
     [0,	            0.0000083,	0,	        0.00000018,	0,	        0.00000025,	0.00000067,	0.00000042,	0.0000063,	0.0000076   ],
     [0.00000745,	0.0000049,	0.0000091,	0,	        0.00000092,	0,	        0,	        0.00000089,	0,	        0           ],
     [0,	            0.0000036,	0.0000025,	0,	        0.00000086,	0.00000032,	0.00000081,	0,	        0.000005,	0.0000026   ],
-    [0.0000029,	    0,	        0.0000065,	0.00000059,	0.00000041,	0,	        0,	        0.00000072,	0.0000083,	0           ]
+    [0.0000029,	    0,	        0.0000065,	0.00000059,	0.00000041,	0,	        0,	        0.00000072,	0.0000083,	0           ],
     [0,	            0,	        0,	        0.00000034,	0,	        0.00000039,	0.00000004,	0.00000027,	0,	        0.0000042   ],
 ];
 const qt2 = [
@@ -39,3 +39,26 @@ const tao2 = [
     [3, 4,	1,	4,	1,	3,	3,	1,	3,	1],
     [4, 3,	4,	1,	3,	1,	2,	3,	1,	2],
 ];
+
+let qtsokn;
+let date1 = document.querySelectorAll('.date1');
+let date2 = document.querySelectorAll('.date2');
+let destvie1 = document.querySelectorAll('.destvie1');
+let destvie2 = document.querySelectorAll('.destvie2');
+let destvie3 = document.querySelector('.destvie3');
+let destvie4 = document.querySelector('.destvie4');
+
+startButton.onclick = () => {
+    //ЗАДАНИЕ 1
+    destvie3.innerHTML = 1;
+    for (let i = 0; i <= 9; i++) {
+        date1[i].innerHTML = qt1[i][variant.value[1]];
+        date2[i].innerHTML = qt2[i][variant.value[0]];
+        if (qt1[i][variant.value[1]] == 0) {
+            destvie1[i].innerHTML = 0;    
+        } else {destvie1[i].innerHTML = (qt1[i][variant.value[1]] * qt2[i][variant.value[0]]).toFixed(12);}
+        destvie2[i].innerHTML = (1 - qt1[i][variant.value[1]] * qt2[i][variant.value[0]]);
+        destvie3.innerHTML *= (1 - qt1[i][variant.value[1]] * qt2[i][variant.value[0]]);
+    }
+    destvie4.innerHTML = 1 - destvie3.innerHTML;
+}
