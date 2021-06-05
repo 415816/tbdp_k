@@ -53,7 +53,7 @@ let otvet3 = document.querySelectorAll('.otvet3');
 
 const lambda1 = [6.71,	3.18,	1.16,	3.72,	4.25,	0.82,	4.74,	0.70,	8.40,	0.59];
 const tu = [0.028,	0.091,	0.036,	0.071,	0.032,	0.066,	0.084,	0.030,	0.016,	0.046];
-const lambda2 = [2.46,	8.25,	2.79,	4.81,	1.49,	8.74,	2.87,	7.72,	9.76,	4.92];
+const lambda2 = [0.0000246,	0.0000825,	0.0000279,	0.0000481,	0.0000149,	0.0000874,	0.0000287,	0.0000772,	0.0000976,	0.0000492];
 const ne = [178,	166,	155,	28,	100,	119,	130,	154,	142,	112];
 const mu2 = [0.8,	1.5,	1.4,	2.0,	0.9,	0.6,	1.7,	1.2,	1.9,	1.3];
 const cps = 3.393;
@@ -101,10 +101,10 @@ startButton.onclick = () => {
         otvet3[0].innerHTML = 1/date3[1].innerHTML;
         otvet3[1].innerHTML = lambda1[variant.value[0]]/otvet3[0].innerHTML;
         otvet3[2].innerHTML = lambda2[variant.value[0]]/mu2[variant.value[0]];
-        otvet3[3].innerHTML = otvet3[1].innerHTML + otvet3[2].innerHTML;
+        otvet3[3].innerHTML = lambda1[variant.value[0]]/otvet3[0].innerHTML + lambda2[variant.value[0]]/mu2[variant.value[0]];
         otvet3[4].innerHTML = otvet3[2].innerHTML;
         otvet3[5].innerHTML = tu[variant.value[1]];
-        otvet3[6].innerHTML = (tu[variant.value[1]])^2;
+        otvet3[6].innerHTML = (tu[variant.value[1]]*tu[variant.value[1]]);
         otvet3[7].innerHTML = (otvet3[5].innerHTML*(1-otvet3[3].innerHTML)+lambda1[variant.value[0]]*otvet3[6].innerHTML/2+lambda2[variant.value[0]]*0/2)/((1-otvet3[3].innerHTML)*(1-otvet3[4].innerHTML));
         otvet3[8].innerHTML = lambda1[variant.value[0]]*otvet3[7].innerHTML;
         otvet3[9].innerHTML = (otvet3[5].innerHTML*(1-otvet3[3].innerHTML)+lambda1[variant.value[0]]*otvet3[6].innerHTML/2+0*0/2)/((1-otvet3[3].innerHTML)*(1-0));
@@ -113,11 +113,11 @@ startButton.onclick = () => {
         otvet3[12].innerHTML = otvet3[8].innerHTML - otvet3[10].innerHTML;
         otvet3[13].innerHTML = cps * otvet3[11].innerHTML * lambda1[variant.value[0]] * tr * ne[variant.value[1]];
         otvet3[14].innerHTML = cop * otvet3[12].innerHTML * lambda1[variant.value[0]] * tr * ne[variant.value[1]];
-        otvet3[15].innerHTML = otvet3[13].innerHTML + otvet3[14].innerHTML;
+        otvet3[15].innerHTML = (+ otvet3[13].innerHTML) + (+otvet3[14].innerHTML);
         otvet3[16].innerHTML = -lambda2[variant.value[0]]/(lambda2[variant.value[0]] + mu2[variant.value[0]]);
-        otvet3[17].innerHTML = 1-((mu2[variant.value[0]]*(lambda2[variant.value[0]]+otvet3[0].innerHTML))/((lambda2[variant.value[0]]+mu2[variant.value[0]])*(lambda1[variant.value[0]]+lambda2[variant.value[0]]+otvet3[0].innerHTML)))+(((mu2[variant.value[0]]-otvet3[0].innerHTML)*lambda2[variant.value[0]])/((lambda1[variant.value[0]]+otvet3[0].innerHTML-mu2[variant.value[0]])*(lambda2[variant.value[0]]+mu2[variant.value[0]])));
-        otvet3[18].innerHTML = ((mu2[variant.value[0]]*lambda1[variant.value[0]])/((lambda2[variant.value[0]]+mu2[variant.value[0]])*(lambda1[variant.value[0]]+lambda2[variant.value[0]]+otvet3[0].innerHTML)));
+        otvet3[17].innerHTML = 1-((mu2[variant.value[0]]*((+lambda2[variant.value[0]])+(+otvet3[0].innerHTML)))/(((+lambda2[variant.value[0]])+(+mu2[variant.value[0]]))*((+lambda1[variant.value[0]])+(+lambda2[variant.value[0]])+(+otvet3[0].innerHTML))))+((((+mu2[variant.value[0]])-(+otvet3[0].innerHTML))*lambda2[variant.value[0]])/(((+lambda1[variant.value[0]])+(+otvet3[0].innerHTML)-(+mu2[variant.value[0]]))*((+lambda2[variant.value[0]])+(+mu2[variant.value[0]]))));
+        otvet3[18].innerHTML = ((mu2[variant.value[0]]*lambda1[variant.value[0]])/(((+lambda2[variant.value[0]])+(+mu2[variant.value[0]]))*((+lambda1[variant.value[0]])+(+lambda2[variant.value[0]])+(+otvet3[0].innerHTML))));
         otvet3[19].innerHTML = lambda2[variant.value[0]]/(lambda2[variant.value[0]] + mu2[variant.value[0]]);
-
+        otvet3[20].innerHTML = otvet3[18].innerHTML*otvet3[19].innerHTML;
 
 }

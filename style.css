@@ -4,7 +4,7 @@
 }
 .styleTable div {
     border: 1px solid black;
-    min-width: 110px;
+    min-width: 111px;
     overflow: auto;
     height: 30px;
     margin: 1px;
@@ -12,5 +12,8 @@
     padding-top: 5px;
 }
 .destvie3, .destvie4{
+    width: 226px;
+}
+.otvet3{
     width: 226px;
 }
