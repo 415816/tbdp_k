@@ -48,6 +48,18 @@ let destvie2 = document.querySelectorAll('.destvie2');
 let destvie3 = document.querySelector('.destvie3');
 let destvie4 = document.querySelector('.destvie4');
 let otvet2 = document.querySelectorAll('.otvet2');
+let date3 = document.querySelectorAll('.date3');
+
+const lambda1 = [6.71,	3.18,	1.16,	3.72,	4.25,	0.82,	4.74,	0.70,	8.40,	0.59];
+const tu = [0.028,	0.091,	0.036,	0.071,	0.032,	0.066,	0.084,	0.030,	0.016,	0.046];
+const lambda2 = [2.46,	8.25,	2.79,	4.81,	1.49,	8.74,	2.87,	7.72,	9.76,	4.92];
+const ne = [178,	166,	155,	28,	100,	119,	130,	154,	142,	112];
+const mu2 = [0.8,	1.5,	1.4,	2.0,	0.9,	0.6,	1.7,	1.2,	1.9,	1.3];
+const cps = 3.393;
+const cop = 0.12746;
+const tr = 26280;
+const k = [0.0086,	0.0020,	0.0027,	0.0067,	0.0032,	0.0016,	0.0037,	0.0042,	0.0008,	0.0047];
+const level = ["незначительный",	"серьёзный",	"критический",	"катастрофический",	"незначительный",	"серьёзный",	"критический",	"катастрофический",	"незначительный",	"серьёзный"];
 
 
 startButton.onclick = () => {
@@ -74,4 +86,15 @@ startButton.onclick = () => {
             otvet2[i].innerHTML = tao2[i][variant.value[1]];
         }
     }
+    //ЗАДАНИЕ 3
+        date3[0].innerHTML = lambda1[variant.value[0]];
+        date3[1].innerHTML = tu[variant.value[1]];
+        date3[2].innerHTML = lambda2[variant.value[0]];
+        date3[3].innerHTML = ne[variant.value[1]];
+        date3[4].innerHTML = mu2[variant.value[0]];
+        date3[5].innerHTML = cps;
+        date3[6].innerHTML = cop;
+        date3[7].innerHTML = tr;
+        date3[8].innerHTML = k[variant.value[1]];
+        date3[9].innerHTML = level[variant.value[0]];
 }
