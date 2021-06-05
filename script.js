@@ -51,6 +51,8 @@ let otvet2 = document.querySelectorAll('.otvet2');
 let date3 = document.querySelectorAll('.date3');
 let otvet3 = document.querySelectorAll('.otvet3');
 let otvet4 = document.querySelectorAll('.otvet4');
+let otvet31 = document.querySelector('.otvet31');
+let otvet41 = document.querySelector('.otvet41');
 
 const lambda1 = [6.71,	3.18,	1.16,	3.72,	4.25,	0.82,	4.74,	0.70,	8.40,	0.59];
 const tu = [0.028,	0.091,	0.036,	0.071,	0.032,	0.066,	0.084,	0.030,	0.016,	0.046];
@@ -71,8 +73,8 @@ startButton.onclick = () => {
         date1[i].innerHTML = qt1[i][variant.value[1]];
         date2[i].innerHTML = qt2[i][variant.value[0]];
         if (qt1[i][variant.value[1]] == 0) {
-            destvie1[i].innerHTML = 0;    
-        } else {destvie1[i].innerHTML = (qt1[i][variant.value[1]] * qt2[i][variant.value[0]]).toFixed(12);}
+            destvie1[i].innerHTML = 0;
+        } else { destvie1[i].innerHTML = (qt1[i][variant.value[1]] * qt2[i][variant.value[0]]).toFixed(12); }
         destvie2[i].innerHTML = (1 - qt1[i][variant.value[1]] * qt2[i][variant.value[0]]);
         destvie3.innerHTML *= (1 - qt1[i][variant.value[1]] * qt2[i][variant.value[0]]);
     }
@@ -89,49 +91,71 @@ startButton.onclick = () => {
         }
     }
     //ЗАДАНИЕ 3
-        date3[0].innerHTML = lambda1[variant.value[0]];
-        date3[1].innerHTML = tu[variant.value[1]];
-        date3[2].innerHTML = lambda2[variant.value[0]];
-        date3[3].innerHTML = ne[variant.value[1]];
-        date3[4].innerHTML = mu2[variant.value[0]];
-        date3[5].innerHTML = cps;
-        date3[6].innerHTML = cop;
-        date3[7].innerHTML = tr;
-        date3[8].innerHTML = k[variant.value[1]];
-        date3[9].innerHTML = level[variant.value[0]];
-        otvet3[0].innerHTML = 1/date3[1].innerHTML;
-        otvet3[1].innerHTML = lambda1[variant.value[0]]/otvet3[0].innerHTML;
-        otvet3[2].innerHTML = lambda2[variant.value[0]]/mu2[variant.value[0]];
-        otvet3[3].innerHTML = lambda1[variant.value[0]]/otvet3[0].innerHTML + lambda2[variant.value[0]]/mu2[variant.value[0]];
-        otvet3[4].innerHTML = otvet3[2].innerHTML;
-        otvet3[5].innerHTML = tu[variant.value[1]];
-        otvet3[6].innerHTML = (tu[variant.value[1]]*tu[variant.value[1]]);
-        otvet3[7].innerHTML = (otvet3[5].innerHTML*(1-otvet3[3].innerHTML)+lambda1[variant.value[0]]*otvet3[6].innerHTML/2+lambda2[variant.value[0]]*0/2)/((1-otvet3[3].innerHTML)*(1-otvet3[4].innerHTML));
-        otvet3[8].innerHTML = lambda1[variant.value[0]]*otvet3[7].innerHTML;
-        otvet3[9].innerHTML = (otvet3[5].innerHTML*(1-otvet3[3].innerHTML)+lambda1[variant.value[0]]*otvet3[6].innerHTML/2+0*0/2)/((1-otvet3[3].innerHTML)*(1-0));
-        otvet3[10].innerHTML = lambda1[variant.value[0]]*otvet3[9].innerHTML;
-        otvet3[11].innerHTML = otvet3[7].innerHTML - otvet3[9].innerHTML;
-        otvet3[12].innerHTML = otvet3[8].innerHTML - otvet3[10].innerHTML;
-        otvet3[13].innerHTML = cps * otvet3[11].innerHTML * lambda1[variant.value[0]] * tr * ne[variant.value[1]];
-        otvet3[14].innerHTML = cop * otvet3[12].innerHTML * lambda1[variant.value[0]] * tr * ne[variant.value[1]];
-        otvet3[15].innerHTML = (+ otvet3[13].innerHTML) + (+otvet3[14].innerHTML);
-        otvet3[16].innerHTML = -lambda2[variant.value[0]]/(lambda2[variant.value[0]] + mu2[variant.value[0]]);
-        otvet3[17].innerHTML = 1-((mu2[variant.value[0]]*((+lambda2[variant.value[0]])+(+otvet3[0].innerHTML)))/(((+lambda2[variant.value[0]])+(+mu2[variant.value[0]]))*((+lambda1[variant.value[0]])+(+lambda2[variant.value[0]])+(+otvet3[0].innerHTML))))+((((+mu2[variant.value[0]])-(+otvet3[0].innerHTML))*lambda2[variant.value[0]])/(((+lambda1[variant.value[0]])+(+otvet3[0].innerHTML)-(+mu2[variant.value[0]]))*((+lambda2[variant.value[0]])+(+mu2[variant.value[0]]))));
-        otvet3[18].innerHTML = ((mu2[variant.value[0]]*lambda1[variant.value[0]])/(((+lambda2[variant.value[0]])+(+mu2[variant.value[0]]))*((+lambda1[variant.value[0]])+(+lambda2[variant.value[0]])+(+otvet3[0].innerHTML))));
-        otvet3[19].innerHTML = lambda2[variant.value[0]]/(lambda2[variant.value[0]] + mu2[variant.value[0]]);
-        otvet3[20].innerHTML = otvet3[18].innerHTML*otvet3[19].innerHTML;
-        //ЗАДАНИЕ 4
-        otvet4[0].innerHTML = k[variant.value[1]]*lambda2[variant.value[0]];
-        otvet4[1].innerHTML = tu[variant.value[1]];
-        otvet4[2].innerHTML = 1/lambda1[variant.value[0]];
-        otvet4[3].innerHTML = k[variant.value[1]]/mu2[variant.value[0]];
-        otvet4[4].innerHTML = 1/otvet4[0].innerHTML;
-        otvet4[5].innerHTML = (tu[variant.value[1]]*otvet4[3].innerHTML)/((+tu[variant.value[1]])+(+otvet4[3].innerHTML));
-        otvet4[6].innerHTML = (   (+otvet4[3].innerHTML)+(+otvet4[1].innerHTML)    )   /    ( (   (+otvet4[1].innerHTML)+(+otvet4[2].innerHTML)  )*(  (+otvet4[3].innerHTML)  +(+otvet4[4].innerHTML)));
-        otvet4[7].innerHTML = 1/otvet4[6].innerHTML - (+otvet4[5].innerHTML);
-        otvet4[8].innerHTML = 1/otvet4[7].innerHTML;
-        otvet4[9].innerHTML = (+otvet4[6].innerHTML) + (1-otvet4[6].innerHTML)*(1-Math.exp(-otvet4[8].innerHTML*tr));
+    date3[0].innerHTML = lambda1[variant.value[0]];
+    date3[1].innerHTML = tu[variant.value[1]];
+    date3[2].innerHTML = lambda2[variant.value[0]];
+    date3[3].innerHTML = ne[variant.value[1]];
+    date3[4].innerHTML = mu2[variant.value[0]];
+    date3[5].innerHTML = cps;
+    date3[6].innerHTML = cop;
+    date3[7].innerHTML = tr;
+    date3[8].innerHTML = k[variant.value[1]];
+    date3[9].innerHTML = level[variant.value[0]];
+    otvet3[0].innerHTML = 1 / date3[1].innerHTML;
+    otvet3[1].innerHTML = lambda1[variant.value[0]] / otvet3[0].innerHTML;
+    otvet3[2].innerHTML = lambda2[variant.value[0]] / mu2[variant.value[0]];
+    otvet3[3].innerHTML = lambda1[variant.value[0]] / otvet3[0].innerHTML + lambda2[variant.value[0]] / mu2[variant.value[0]];
+    otvet3[4].innerHTML = otvet3[2].innerHTML;
+    otvet3[5].innerHTML = tu[variant.value[1]];
+    otvet3[6].innerHTML = (tu[variant.value[1]] * tu[variant.value[1]]);
+    otvet3[7].innerHTML = (otvet3[5].innerHTML * (1 - otvet3[3].innerHTML) + lambda1[variant.value[0]] * otvet3[6].innerHTML / 2 + lambda2[variant.value[0]] * 0 / 2) / ((1 - otvet3[3].innerHTML) * (1 - otvet3[4].innerHTML));
+    otvet3[8].innerHTML = lambda1[variant.value[0]] * otvet3[7].innerHTML;
+    otvet3[9].innerHTML = (otvet3[5].innerHTML * (1 - otvet3[3].innerHTML) + lambda1[variant.value[0]] * otvet3[6].innerHTML / 2 + 0 * 0 / 2) / ((1 - otvet3[3].innerHTML) * (1 - 0));
+    otvet3[10].innerHTML = lambda1[variant.value[0]] * otvet3[9].innerHTML;
+    otvet3[11].innerHTML = otvet3[7].innerHTML - otvet3[9].innerHTML;
+    otvet3[12].innerHTML = otvet3[8].innerHTML - otvet3[10].innerHTML;
+    otvet3[13].innerHTML = cps * otvet3[11].innerHTML * lambda1[variant.value[0]] * tr * ne[variant.value[1]];
+    otvet3[14].innerHTML = cop * otvet3[12].innerHTML * lambda1[variant.value[0]] * tr * ne[variant.value[1]];
+    otvet3[15].innerHTML = (+ otvet3[13].innerHTML) + (+otvet3[14].innerHTML);
+    otvet3[16].innerHTML = -lambda2[variant.value[0]] / (lambda2[variant.value[0]] + mu2[variant.value[0]]);
+    otvet3[17].innerHTML = 1 - ((mu2[variant.value[0]] * ((+lambda2[variant.value[0]]) + (+otvet3[0].innerHTML))) / (((+lambda2[variant.value[0]]) + (+mu2[variant.value[0]])) * ((+lambda1[variant.value[0]]) + (+lambda2[variant.value[0]]) + (+otvet3[0].innerHTML)))) + ((((+mu2[variant.value[0]]) - (+otvet3[0].innerHTML)) * lambda2[variant.value[0]]) / (((+lambda1[variant.value[0]]) + (+otvet3[0].innerHTML) - (+mu2[variant.value[0]])) * ((+lambda2[variant.value[0]]) + (+mu2[variant.value[0]]))));
+    otvet3[18].innerHTML = ((mu2[variant.value[0]] * lambda1[variant.value[0]]) / (((+lambda2[variant.value[0]]) + (+mu2[variant.value[0]])) * ((+lambda1[variant.value[0]]) + (+lambda2[variant.value[0]]) + (+otvet3[0].innerHTML))));
+    otvet3[19].innerHTML = lambda2[variant.value[0]] / (lambda2[variant.value[0]] + mu2[variant.value[0]]);
+    otvet3[20].innerHTML = otvet3[18].innerHTML * otvet3[19].innerHTML;
+    if (otvet3[20].innerHTML >= 0.9) { otvet31.innerHTML = "Ч"; }
+    else if (otvet3[20].innerHTML >= 0.1) { otvet31.innerHTML = "В"; }
+    else if (otvet3[20].innerHTML >= 0.001) { otvet31.innerHTML = "C"; }
+    else if (otvet3[20].innerHTML >= 0.00001) { otvet31.innerHTML = "P"; }
+    else if (otvet3[20].innerHTML >= 0.0000001) { otvet31.innerHTML = "K"; }
+    else if (otvet3[20].innerHTML < 0.0000001) { otvet31.innerHTML = "M"; }
 
+    if (otvet3[15].innerHTML > 4000) { otvet31.innerHTML += 4; }
+    else if (otvet3[15].innerHTML > 200) { otvet31.innerHTML += 3; }
+    else if (otvet3[15].innerHTML > 50) { otvet31.innerHTML += 2; }
+    else { otvet31.innerHTML += 1; }
+
+    //ЗАДАНИЕ 4
+    otvet4[0].innerHTML = k[variant.value[1]] * lambda2[variant.value[0]];
+    otvet4[1].innerHTML = tu[variant.value[1]];
+    otvet4[2].innerHTML = 1 / lambda1[variant.value[0]];
+    otvet4[3].innerHTML = k[variant.value[1]] / mu2[variant.value[0]];
+    otvet4[4].innerHTML = 1 / otvet4[0].innerHTML;
+    otvet4[5].innerHTML = (tu[variant.value[1]] * otvet4[3].innerHTML) / ((+tu[variant.value[1]]) + (+otvet4[3].innerHTML));
+    otvet4[6].innerHTML = ((+otvet4[3].innerHTML) + (+otvet4[1].innerHTML)) / (((+otvet4[1].innerHTML) + (+otvet4[2].innerHTML)) * ((+otvet4[3].innerHTML) + (+otvet4[4].innerHTML)));
+    otvet4[7].innerHTML = 1 / otvet4[6].innerHTML - (+otvet4[5].innerHTML);
+    otvet4[8].innerHTML = 1 / otvet4[7].innerHTML;
+    otvet4[9].innerHTML = (+otvet4[6].innerHTML) + (1 - otvet4[6].innerHTML) * (1 - Math.exp(-otvet4[8].innerHTML * tr));
+    if (otvet4[9].innerHTML >= 0.9) { otvet41.innerHTML = "Ч"; }
+    else if (otvet4[9].innerHTML >= 0.1) { otvet41.innerHTML = "В"; }
+    else if (otvet4[9].innerHTML >= 0.001) { otvet41.innerHTML = "C"; }
+    else if (otvet4[9].innerHTML >= 0.00001) { otvet41.innerHTML = "P"; }
+    else if (otvet4[9].innerHTML >= 0.0000001) { otvet41.innerHTML = "K"; }
+    else if (otvet4[9].innerHTML < 0.0000001) { otvet41.innerHTML = "M"; }
+
+    if (level[variant.value[0]] ==  "незначительный") { otvet41.innerHTML += 1; }
+    else if (level[variant.value[0]] == "серьёзный") { otvet41.innerHTML += 2; }
+    else if (level[variant.value[0]] == "критический") { otvet41.innerHTML += 3; }
+    else { otvet41.innerHTML += 4; }
 
 
 }
