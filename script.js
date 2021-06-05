@@ -47,6 +47,8 @@ let destvie1 = document.querySelectorAll('.destvie1');
 let destvie2 = document.querySelectorAll('.destvie2');
 let destvie3 = document.querySelector('.destvie3');
 let destvie4 = document.querySelector('.destvie4');
+let otvet2 = document.querySelectorAll('.otvet2');
+
 
 startButton.onclick = () => {
     //ЗАДАНИЕ 1
@@ -61,4 +63,15 @@ startButton.onclick = () => {
         destvie3.innerHTML *= (1 - qt1[i][variant.value[1]] * qt2[i][variant.value[0]]);
     }
     destvie4.innerHTML = 1 - destvie3.innerHTML;
+
+    //ЗАДАНИЕ 2
+    if (variant.value[0] % 2 == 1) {
+        for (let i = 0; i <= 3; i++) {
+            otvet2[i].innerHTML = tao1[i][variant.value[1]];
+        }
+    } else {
+        for (let i = 0; i <= 3; i++) {
+            otvet2[i].innerHTML = tao2[i][variant.value[1]];
+        }
+    }
 }
