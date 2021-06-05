@@ -50,6 +50,7 @@ let destvie4 = document.querySelector('.destvie4');
 let otvet2 = document.querySelectorAll('.otvet2');
 let date3 = document.querySelectorAll('.date3');
 let otvet3 = document.querySelectorAll('.otvet3');
+let otvet4 = document.querySelectorAll('.otvet4');
 
 const lambda1 = [6.71,	3.18,	1.16,	3.72,	4.25,	0.82,	4.74,	0.70,	8.40,	0.59];
 const tu = [0.028,	0.091,	0.036,	0.071,	0.032,	0.066,	0.084,	0.030,	0.016,	0.046];
@@ -119,5 +120,18 @@ startButton.onclick = () => {
         otvet3[18].innerHTML = ((mu2[variant.value[0]]*lambda1[variant.value[0]])/(((+lambda2[variant.value[0]])+(+mu2[variant.value[0]]))*((+lambda1[variant.value[0]])+(+lambda2[variant.value[0]])+(+otvet3[0].innerHTML))));
         otvet3[19].innerHTML = lambda2[variant.value[0]]/(lambda2[variant.value[0]] + mu2[variant.value[0]]);
         otvet3[20].innerHTML = otvet3[18].innerHTML*otvet3[19].innerHTML;
+        //ЗАДАНИЕ 4
+        otvet4[0].innerHTML = k[variant.value[1]]*lambda2[variant.value[0]];
+        otvet4[1].innerHTML = tu[variant.value[1]];
+        otvet4[2].innerHTML = 1/lambda1[variant.value[0]];
+        otvet4[3].innerHTML = k[variant.value[1]]/mu2[variant.value[0]];
+        otvet4[4].innerHTML = 1/otvet4[0].innerHTML;
+        otvet4[5].innerHTML = (tu[variant.value[1]]*otvet4[3].innerHTML)/((+tu[variant.value[1]])+(+otvet4[3].innerHTML));
+        otvet4[6].innerHTML = (   (+otvet4[3].innerHTML)+(+otvet4[1].innerHTML)    )   /    ( (   (+otvet4[1].innerHTML)+(+otvet4[2].innerHTML)  )*(  (+otvet4[3].innerHTML)  +(+otvet4[4].innerHTML)));
+        otvet4[7].innerHTML = 1/otvet4[6].innerHTML - (+otvet4[5].innerHTML);
+        otvet4[8].innerHTML = 1/otvet4[7].innerHTML;
+        otvet4[9].innerHTML = (+otvet4[6].innerHTML) + (1-otvet4[6].innerHTML)*(1-Math.exp(-otvet4[8].innerHTML*tr));
+
+
 
 }
