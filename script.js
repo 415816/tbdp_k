@@ -124,15 +124,29 @@ startButton.onclick = () => {
     otvet3[20].innerHTML = otvet3[18].innerHTML * otvet3[19].innerHTML;
     if (otvet3[20].innerHTML >= 0.9) { otvet31.innerHTML = "Ч"; }
     else if (otvet3[20].innerHTML >= 0.1) { otvet31.innerHTML = "В"; }
-    else if (otvet3[20].innerHTML >= 0.001) { otvet31.innerHTML = "C"; }
-    else if (otvet3[20].innerHTML >= 0.00001) { otvet31.innerHTML = "P"; }
-    else if (otvet3[20].innerHTML >= 0.0000001) { otvet31.innerHTML = "K"; }
-    else if (otvet3[20].innerHTML < 0.0000001) { otvet31.innerHTML = "M"; }
+    else if (otvet3[20].innerHTML >= 0.001) { otvet31.innerHTML = "С"; }
+    else if (otvet3[20].innerHTML >= 0.00001) { otvet31.innerHTML = "Р"; }
+    else if (otvet3[20].innerHTML >= 0.0000001) { otvet31.innerHTML = "К"; }
+    else if (otvet3[20].innerHTML < 0.0000001) { otvet31.innerHTML = "М"; }
 
     if (otvet3[15].innerHTML > 4000) { otvet31.innerHTML += 4; }
     else if (otvet3[15].innerHTML > 200) { otvet31.innerHTML += 3; }
     else if (otvet3[15].innerHTML > 50) { otvet31.innerHTML += 2; }
     else { otvet31.innerHTML += 1; }
+    if(otvet31.innerHTML == "Р1" || otvet31.innerHTML == "К1" || otvet31.innerHTML == "М1" || otvet31.innerHTML == "М2") {
+        otvet31.style.background = "green";
+    }
+    else if(otvet31.innerHTML == "Ч1" || otvet31.innerHTML == "В1" || otvet31.innerHTML == "С1" || otvet31.innerHTML == "С2" || otvet31.innerHTML == "Р2"|| otvet31.innerHTML == "К2"|| otvet31.innerHTML == "К3" || otvet31.innerHTML == "К4" || otvet31.innerHTML == "М3" || otvet31.innerHTML == "М4") {
+        otvet31.style.background = "yellow";
+    }
+    else if(otvet31.innerHTML == "Ч2" || otvet31.innerHTML == "В2" || otvet31.innerHTML == "В3" || otvet31.innerHTML == "С3" || otvet31.innerHTML == "Р3"|| otvet31.innerHTML == "Р4") {
+        otvet31.style.background = "orange";
+    }
+    else if(otvet31.innerHTML == "Ч3" || otvet31.innerHTML == "Ч4" || otvet31.innerHTML == "В4" || otvet31.innerHTML == "С4") {
+        otvet31.style.background = "red";
+    }
+
+
 
     //ЗАДАНИЕ 4
     otvet4[0].innerHTML = k[variant.value[1]] * lambda2[variant.value[0]];
@@ -147,15 +161,26 @@ startButton.onclick = () => {
     otvet4[9].innerHTML = (+otvet4[6].innerHTML) + (1 - otvet4[6].innerHTML) * (1 - Math.exp(-otvet4[8].innerHTML * tr));
     if (otvet4[9].innerHTML >= 0.9) { otvet41.innerHTML = "Ч"; }
     else if (otvet4[9].innerHTML >= 0.1) { otvet41.innerHTML = "В"; }
-    else if (otvet4[9].innerHTML >= 0.001) { otvet41.innerHTML = "C"; }
-    else if (otvet4[9].innerHTML >= 0.00001) { otvet41.innerHTML = "P"; }
-    else if (otvet4[9].innerHTML >= 0.0000001) { otvet41.innerHTML = "K"; }
-    else if (otvet4[9].innerHTML < 0.0000001) { otvet41.innerHTML = "M"; }
+    else if (otvet4[9].innerHTML >= 0.001) { otvet41.innerHTML = "С"; }
+    else if (otvet4[9].innerHTML >= 0.00001) { otvet41.innerHTML = "Р"; }
+    else if (otvet4[9].innerHTML >= 0.0000001) { otvet41.innerHTML = "К"; }
+    else if (otvet4[9].innerHTML < 0.0000001) { otvet41.innerHTML = "М"; }
 
     if (level[variant.value[0]] ==  "незначительный") { otvet41.innerHTML += 1; }
     else if (level[variant.value[0]] == "серьёзный") { otvet41.innerHTML += 2; }
     else if (level[variant.value[0]] == "критический") { otvet41.innerHTML += 3; }
     else { otvet41.innerHTML += 4; }
 
-
+    if(otvet41.innerHTML == "Р1" || otvet41.innerHTML == "К1" || otvet41.innerHTML == "М1" || otvet41.innerHTML == "М2") {
+        otvet41.style.background = "green";
+    }
+    else if(otvet41.innerHTML == "Ч1" || otvet41.innerHTML == "В1" || otvet41.innerHTML == "С1" || otvet41.innerHTML == "С2" || otvet41.innerHTML == "Р2"|| otvet41.innerHTML == "К2"|| otvet41.innerHTML == "К3" || otvet41.innerHTML == "К4" || otvet41.innerHTML == "М3" || otvet41.innerHTML == "М4") {
+        otvet41.style.background = "yellow";
+    }
+    else if(otvet41.innerHTML == "Ч2" || otvet41.innerHTML == "В2" || otvet41.innerHTML == "В3" || otvet41.innerHTML == "С3" || otvet41.innerHTML == "Р3"|| otvet41.innerHTML == "Р4") {
+        otvet41.style.background = "orange";
+    }
+    else if(otvet41.innerHTML == "Ч3" || otvet41.innerHTML == "Ч4" || otvet41.innerHTML == "В4" || otvet41.innerHTML == "С4") {
+        otvet41.style.background = "red";
+    }
 }
