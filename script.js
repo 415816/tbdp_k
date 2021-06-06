@@ -54,16 +54,16 @@ let otvet4 = document.querySelectorAll('.otvet4');
 let otvet31 = document.querySelector('.otvet31');
 let otvet41 = document.querySelector('.otvet41');
 
-const lambda1 = [6.71,	3.18,	1.16,	3.72,	4.25,	0.82,	4.74,	0.70,	8.40,	0.59];
-const tu = [0.028,	0.091,	0.036,	0.071,	0.032,	0.066,	0.084,	0.030,	0.016,	0.046];
-const lambda2 = [0.0000246,	0.0000825,	0.0000279,	0.0000481,	0.0000149,	0.0000874,	0.0000287,	0.0000772,	0.0000976,	0.0000492];
-const ne = [178,	166,	155,	28,	100,	119,	130,	154,	142,	112];
-const mu2 = [0.8,	1.5,	1.4,	2.0,	0.9,	0.6,	1.7,	1.2,	1.9,	1.3];
+const lambda1 = [6.71, 3.18, 1.16, 3.72, 4.25, 0.82, 4.74, 0.70, 8.40, 0.59];
+const tu = [0.028, 0.091, 0.036, 0.071, 0.032, 0.066, 0.084, 0.030, 0.016, 0.046];
+const lambda2 = [0.0000246, 0.0000825, 0.0000279, 0.0000481, 0.0000149, 0.0000874, 0.0000287, 0.0000772, 0.0000976, 0.0000492];
+const ne = [178, 166, 155, 28, 100, 119, 130, 154, 142, 112];
+const mu2 = [0.8, 1.5, 1.4, 2.0, 0.9, 0.6, 1.7, 1.2, 1.9, 1.3];
 const cps = 3.393;
 const cop = 0.12746;
 const tr = 26280;
-const k = [0.0086,	0.0020,	0.0027,	0.0067,	0.0032,	0.0016,	0.0037,	0.0042,	0.0008,	0.0047];
-const level = ["незначительный",	"серьёзный",	"критический",	"катастрофический",	"незначительный",	"серьёзный",	"критический",	"катастрофический",	"незначительный",	"серьёзный"];
+const k = [0.0086, 0.0020, 0.0027, 0.0067, 0.0032, 0.0016, 0.0037, 0.0042, 0.0008, 0.0047];
+const level = ["незначительный", "серьёзный", "критический", "катастрофический", "незначительный", "серьёзный", "критический", "катастрофический", "незначительный", "серьёзный"];
 
 
 startButton.onclick = () => {
@@ -90,6 +90,7 @@ startButton.onclick = () => {
             otvet2[i].innerHTML = tao2[i][variant.value[1]];
         }
     }
+
     //ЗАДАНИЕ 3
     date3[0].innerHTML = lambda1[variant.value[0]];
     date3[1].innerHTML = tu[variant.value[1]];
@@ -133,20 +134,18 @@ startButton.onclick = () => {
     else if (otvet3[15].innerHTML > 200) { otvet31.innerHTML += 3; }
     else if (otvet3[15].innerHTML > 50) { otvet31.innerHTML += 2; }
     else { otvet31.innerHTML += 1; }
-    if(otvet31.innerHTML == "Р1" || otvet31.innerHTML == "К1" || otvet31.innerHTML == "М1" || otvet31.innerHTML == "М2") {
+    if (otvet31.innerHTML == "Р1" || otvet31.innerHTML == "К1" || otvet31.innerHTML == "М1" || otvet31.innerHTML == "М2") {
         otvet31.style.background = "green";
     }
-    else if(otvet31.innerHTML == "Ч1" || otvet31.innerHTML == "В1" || otvet31.innerHTML == "С1" || otvet31.innerHTML == "С2" || otvet31.innerHTML == "Р2"|| otvet31.innerHTML == "К2"|| otvet31.innerHTML == "К3" || otvet31.innerHTML == "К4" || otvet31.innerHTML == "М3" || otvet31.innerHTML == "М4") {
+    else if (otvet31.innerHTML == "Ч1" || otvet31.innerHTML == "В1" || otvet31.innerHTML == "С1" || otvet31.innerHTML == "С2" || otvet31.innerHTML == "Р2" || otvet31.innerHTML == "К2" || otvet31.innerHTML == "К3" || otvet31.innerHTML == "К4" || otvet31.innerHTML == "М3" || otvet31.innerHTML == "М4") {
         otvet31.style.background = "yellow";
     }
-    else if(otvet31.innerHTML == "Ч2" || otvet31.innerHTML == "В2" || otvet31.innerHTML == "В3" || otvet31.innerHTML == "С3" || otvet31.innerHTML == "Р3"|| otvet31.innerHTML == "Р4") {
+    else if (otvet31.innerHTML == "Ч2" || otvet31.innerHTML == "В2" || otvet31.innerHTML == "В3" || otvet31.innerHTML == "С3" || otvet31.innerHTML == "Р3" || otvet31.innerHTML == "Р4") {
         otvet31.style.background = "orange";
     }
-    else if(otvet31.innerHTML == "Ч3" || otvet31.innerHTML == "Ч4" || otvet31.innerHTML == "В4" || otvet31.innerHTML == "С4") {
+    else if (otvet31.innerHTML == "Ч3" || otvet31.innerHTML == "Ч4" || otvet31.innerHTML == "В4" || otvet31.innerHTML == "С4") {
         otvet31.style.background = "red";
     }
-
-
 
     //ЗАДАНИЕ 4
     otvet4[0].innerHTML = k[variant.value[1]] * lambda2[variant.value[0]];
@@ -166,21 +165,21 @@ startButton.onclick = () => {
     else if (otvet4[9].innerHTML >= 0.0000001) { otvet41.innerHTML = "К"; }
     else if (otvet4[9].innerHTML < 0.0000001) { otvet41.innerHTML = "М"; }
 
-    if (level[variant.value[0]] ==  "незначительный") { otvet41.innerHTML += 1; }
+    if (level[variant.value[0]] == "незначительный") { otvet41.innerHTML += 1; }
     else if (level[variant.value[0]] == "серьёзный") { otvet41.innerHTML += 2; }
     else if (level[variant.value[0]] == "критический") { otvet41.innerHTML += 3; }
     else { otvet41.innerHTML += 4; }
 
-    if(otvet41.innerHTML == "Р1" || otvet41.innerHTML == "К1" || otvet41.innerHTML == "М1" || otvet41.innerHTML == "М2") {
+    if (otvet41.innerHTML == "Р1" || otvet41.innerHTML == "К1" || otvet41.innerHTML == "М1" || otvet41.innerHTML == "М2") {
         otvet41.style.background = "green";
     }
-    else if(otvet41.innerHTML == "Ч1" || otvet41.innerHTML == "В1" || otvet41.innerHTML == "С1" || otvet41.innerHTML == "С2" || otvet41.innerHTML == "Р2"|| otvet41.innerHTML == "К2"|| otvet41.innerHTML == "К3" || otvet41.innerHTML == "К4" || otvet41.innerHTML == "М3" || otvet41.innerHTML == "М4") {
+    else if (otvet41.innerHTML == "Ч1" || otvet41.innerHTML == "В1" || otvet41.innerHTML == "С1" || otvet41.innerHTML == "С2" || otvet41.innerHTML == "Р2" || otvet41.innerHTML == "К2" || otvet41.innerHTML == "К3" || otvet41.innerHTML == "К4" || otvet41.innerHTML == "М3" || otvet41.innerHTML == "М4") {
         otvet41.style.background = "yellow";
     }
-    else if(otvet41.innerHTML == "Ч2" || otvet41.innerHTML == "В2" || otvet41.innerHTML == "В3" || otvet41.innerHTML == "С3" || otvet41.innerHTML == "Р3"|| otvet41.innerHTML == "Р4") {
+    else if (otvet41.innerHTML == "Ч2" || otvet41.innerHTML == "В2" || otvet41.innerHTML == "В3" || otvet41.innerHTML == "С3" || otvet41.innerHTML == "Р3" || otvet41.innerHTML == "Р4") {
         otvet41.style.background = "orange";
     }
-    else if(otvet41.innerHTML == "Ч3" || otvet41.innerHTML == "Ч4" || otvet41.innerHTML == "В4" || otvet41.innerHTML == "С4") {
+    else if (otvet41.innerHTML == "Ч3" || otvet41.innerHTML == "Ч4" || otvet41.innerHTML == "В4" || otvet41.innerHTML == "С4") {
         otvet41.style.background = "red";
     }
 }
