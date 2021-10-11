@@ -11,9 +11,11 @@
     text-align: center;
     padding-top: 5px;
 }
-.destvie3, .destvie4{
+.destvie3, .destvie4, .otvet3_t, .otvet3_n, .otvet3_t0, .otvet3_n0{
     width: 226px;
 }
 .otvet3, .otvet4{
     width: 226px;
 }
+
+
