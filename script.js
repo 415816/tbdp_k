@@ -50,6 +50,7 @@ let destvie4 = document.querySelector('.destvie4');
 let otvet2 = document.querySelectorAll('.otvet2');
 let date3 = document.querySelectorAll('.date3');
 let otvet3 = document.querySelectorAll('.otvet3');
+let otvet3nn = document.querySelector('.otvet3nn');
 let otvet3t = document.querySelectorAll('.otvet3_t');
 let otvet3n = document.querySelectorAll('.otvet3_n');
 let otvet3t0 = document.querySelectorAll('.otvet3_t0');
@@ -112,6 +113,9 @@ startButton.onclick = () => {
     otvet3[3].innerHTML = lambda1[variant.value[0]] / otvet3[0].innerHTML + lambda2[variant.value[0]] / mu2[variant.value[0]];
     otvet3[4].innerHTML = otvet3[2].innerHTML;
     otvet3[5].innerHTML = tu[variant.value[1]];
+
+    otvet3nn.innerHTML = lambda1[variant.value[0]]*tr;
+
     otvet3[6].innerHTML = (tu[variant.value[1]] * tu[variant.value[1]]);
     otvet3[7].innerHTML = (otvet3[5].innerHTML * (1 - otvet3[3].innerHTML) + lambda1[variant.value[0]] * otvet3[6].innerHTML / 2 + lambda2[variant.value[0]] * 0 / 2) / ((1 - otvet3[3].innerHTML) * (1 - otvet3[4].innerHTML));
     otvet3t[0].innerHTML = (otvet3[5].innerHTML * (1 - otvet3[3].innerHTML) + lambda1[variant.value[0]] * otvet3[6].innerHTML / 2 + lambda2[variant.value[0]] * 0 / 2);
